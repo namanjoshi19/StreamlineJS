@@ -1,9 +1,5 @@
 <?
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 class account {
 	private $sql;
 	private $statement;
