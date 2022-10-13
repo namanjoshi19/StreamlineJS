@@ -153,5 +153,7 @@ threads page:
 ![data structure](https://noob.software/images/github/threads-page.png)
 thread page:
 ![data structure](https://noob.software/images/github/thread-page.png)
+thread commentsdata data element diagram page:
+![data structure](https://noob.software/images/github/thread-data-element.png)
 categories page:
 ![data structure](https://noob.software/images/github/categories-page.png)
