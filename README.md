@@ -157,3 +157,6 @@ thread commentsdata data element diagram page:
 ![data structure](https://noob.software/images/github/thread-data-element.png)
 categories page:
 ![data structure](https://noob.software/images/github/categories-page.png)
+
+
+the forum can be setup from the plasticity_with_forum.db sql database dump.

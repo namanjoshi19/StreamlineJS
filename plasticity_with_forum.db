@@ -1,0 +1,480 @@
+-- MariaDB dump 10.19  Distrib 10.5.15-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: plasticity
+-- ------------------------------------------------------
+-- Server version	10.5.15-MariaDB-0ubuntu0.21.10.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `plasticity`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `plasticity` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `plasticity`;
+
+--
+-- Table structure for table `applications`
+--
+
+DROP TABLE IF EXISTS `applications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `applications` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `app_name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `definition_addition` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `applications`
+--
+
+LOCK TABLES `applications` WRITE;
+/*!40000 ALTER TABLE `applications` DISABLE KEYS */;
+INSERT INTO `applications` VALUES (5,'Forum','forum','Noob Software Forum','\"\"');
+/*!40000 ALTER TABLE `applications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `columns`
+--
+
+DROP TABLE IF EXISTS `columns`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `columns` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `table_id` bigint(20) unsigned DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `private_id` bigint(20) unsigned DEFAULT NULL,
+  `type` bigint(20) unsigned DEFAULT NULL,
+  `foreign_table_id` bigint(20) unsigned DEFAULT NULL,
+  `deleted` int(11) DEFAULT 0,
+  `connect_table_ids` text DEFAULT NULL,
+  `private` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `columns`
+--
+
+LOCK TABLES `columns` WRITE;
+/*!40000 ALTER TABLE `columns` DISABLE KEYS */;
+INSERT INTO `columns` VALUES (8,9,'ideas_id',0,1,8,0,NULL,NULL),(9,10,'connect_id',0,2,NULL,0,NULL,NULL),(10,11,'todos_id',0,1,9,0,NULL,NULL),(11,13,'todos2_id',0,1,12,0,NULL,NULL),(12,13,'note_value',0,0,NULL,0,NULL,NULL),(13,6,'todo_value',0,0,NULL,0,NULL,NULL),(14,12,'todo_value',0,0,NULL,0,NULL,NULL),(15,14,'comments_id',0,1,14,0,NULL,NULL),(16,14,'threads_id',0,1,15,0,NULL,NULL),(17,15,'categories_id',0,1,16,0,NULL,NULL),(18,16,'name',0,0,NULL,0,NULL,NULL),(19,15,'title',0,0,NULL,0,NULL,NULL),(20,15,'content',0,0,NULL,0,NULL,NULL),(21,15,'thread_types_id',0,1,17,0,NULL,NULL),(22,17,'name',0,0,NULL,0,NULL,NULL),(23,14,'value',0,0,NULL,0,NULL,NULL),(29,18,'connect_id',0,2,NULL,0,NULL,NULL),(32,21,'appname',0,0,NULL,0,NULL,NULL),(33,21,'description',0,0,NULL,0,NULL,NULL),(34,21,'companyname',0,0,NULL,0,NULL,NULL),(35,21,'dotnetmacos',0,0,NULL,0,NULL,NULL),(36,21,'dotnetwindowsdesktop',0,0,NULL,0,NULL,NULL),(37,21,'dotnetwindowsmobile',0,0,NULL,0,NULL,NULL),(38,21,'dotnetandroid',0,0,NULL,0,NULL,NULL),(39,21,'dotnetwebviewmacos',0,0,NULL,0,NULL,NULL),(40,21,'dotnetwebviewstreamlinemacos',0,0,NULL,0,NULL,NULL),(41,21,'webapplication',0,0,NULL,0,NULL,NULL),(42,21,'webapplicationstreamline',0,0,NULL,0,NULL,NULL),(43,21,'webappstreamlineplasticity',0,0,NULL,0,NULL,NULL),(44,21,'dotnetios',0,0,NULL,0,NULL,NULL),(45,21,'dotnetwebviewdiagrams',0,0,NULL,0,NULL,NULL),(46,21,'email',0,0,NULL,0,NULL,NULL),(47,24,'categories_id',0,1,25,0,NULL,NULL),(48,27,'tags_id',0,1,26,0,NULL,NULL),(49,27,'posts_id',0,1,24,0,NULL,NULL),(50,28,'posts_id',0,1,24,0,NULL,NULL),(51,28,'comments_id',0,1,28,0,NULL,NULL),(52,29,'connect_id',0,2,NULL,0,NULL,NULL),(53,25,'name',0,0,NULL,0,NULL,NULL),(54,24,'title',0,0,NULL,0,NULL,NULL),(55,24,'description',0,0,NULL,0,NULL,NULL),(56,24,'link',0,0,NULL,0,NULL,NULL),(57,24,'categories',0,0,NULL,0,NULL,NULL),(58,31,'series_id',NULL,1,32,0,NULL,NULL),(59,32,'publishers_id',NULL,1,30,0,NULL,NULL),(60,34,'books_id',NULL,1,31,0,NULL,NULL);
+/*!40000 ALTER TABLE `columns` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `data_element_types`
+--
+
+DROP TABLE IF EXISTS `data_element_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `data_element_types` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `description` text DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `icon` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `data_element_types`
+--
+
+LOCK TABLES `data_element_types` WRITE;
+/*!40000 ALTER TABLE `data_element_types` DISABLE KEYS */;
+INSERT INTO `data_element_types` VALUES (1,'input','input','icofont-arrow-right'),(2,'table','table','icofont-table'),(3,'function','function','icofont-calculatios'),(5,'group','group','icofont-sub-listing');
+/*!40000 ALTER TABLE `data_element_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `data_elements`
+--
+
+DROP TABLE IF EXISTS `data_elements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `data_elements` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `table_id` bigint(20) unsigned DEFAULT NULL,
+  `function` text DEFAULT NULL,
+  `transform_name` text DEFAULT NULL,
+  `position_x` double DEFAULT NULL,
+  `position_y` double DEFAULT NULL,
+  `parents` text DEFAULT NULL,
+  `data_element_type_id` bigint(20) unsigned DEFAULT NULL,
+  `element_id` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `data_elements`
+--
+
+LOCK TABLES `data_elements` WRITE;
+/*!40000 ALTER TABLE `data_elements` DISABLE KEYS */;
+INSERT INTO `data_elements` VALUES (1,'main',1,'','',14.39905469277515,20.475638051044083,NULL,2,8),(2,'main',4,'','',25,24.88399071925754,NULL,2,12),(3,'todos',12,'','',25,24.89440337909187,NULL,2,20),(4,'main',13,'','',27.571953459889777,31.615403275536853,'[\"6\"]',2,21),(5,'todos',12,'','',40.18677281077771,26.86206465603236,'[\"4\"]',2,21),(6,'todos2_id',NULL,'','todos2_id',5.097979179424373,20.359628770301626,'[]',1,21),(7,'main',16,'','',25,25,NULL,2,28),(8,'categories',16,'','',25,25,NULL,2,35),(10,'countgroup',NULL,'','',30.631067961165048,39.36114044350581,'[\"7\"]',5,28),(11,'threads',15,'','',39.3042071197411,42.84582893347413,'[\"10\"]',2,28),(12,'count',NULL,'count','',52.11974110032362,41.78986272439282,'[\"11\"]',3,28),(13,'categories_id',NULL,'','categories_id',21.44012944983819,18.664202745512142,NULL,1,41),(14,'threads',15,'','',27.9126213592233,30.913410770855332,'[\"13\"]',2,41),(15,'id',NULL,'','',15.744336569579287,17.397043294614573,NULL,1,45),(16,'threads',15,'','',25.06472491909385,25,'[\"15\",\"21\"]',2,45),(19,'threadtypes',17,'','',25,25,NULL,2,47),(20,'data',17,'','',25,25,NULL,2,51),(21,'thread_types',17,'','',15.032362459546924,37.143611404435056,'[]',2,45),(22,'id',NULL,'','',20.016181229773462,14.65153115100317,NULL,1,53),(23,'threads',15,'','',25,25,'[\"22\",\"28\"]',2,53),(28,'threadtype',17,'','',13.414239482200646,31.96937697993664,'[]',2,53),(29,'threadtypes',17,'','',16.003236245954692,39.6779303062302,'[\"14\"]',2,41),(31,'categories',16,'','',11.21359223300971,26.478352692713834,'[\"14\"]',2,41),(32,'id',NULL,'','threads_id',13.155339805825243,13.701161562829988,NULL,1,57),(33,'comments',14,'','',30.954692556634306,19.720168954593454,'[\"32\"]',2,57),(34,'votessource',18,'','',16.390507275232604,45.59134107708553,'[\"36\"]',2,57),(35,'count',NULL,'count','',29.336569579288025,52.45512143611405,'[\"34\"]',3,57),(36,'vote_count',NULL,'','',21.957928802588995,31.96937697993664,'[\"33\"]',5,57),(37,'comments.id',NULL,'','connect_id',13.284789644012946,19.825765575501585,NULL,1,61),(38,'votescount',18,'','',23.381877022653722,26.689545934530095,'[\"37\"]',2,61),(39,'count',NULL,'count','',26.100323624595468,44.324181626187965,'[\"38\"]',3,61),(40,'votessource',18,'','',14.449838187702266,26.055966209081312,'[\"43\"]',2,62),(43,'commentssource',14,'','',25.06472491909385,16.974656810982047,'[]',2,62),(44,'voted_count',NULL,'','',36.5210355987055,35.98204857444562,'[\"33\"]',5,57),(45,'votedsource',18,'','',41.63430420711974,45.80253431890179,'[\"44\",\"46\"]',2,57),(46,'global.user_id',NULL,'','',45.19417475728155,22.888067581837383,NULL,1,57),(47,'count',NULL,'count','',55.95597056873116,57.84054910242872,'[\"45\"]',3,57),(48,'id',NULL,'','',7.134941130915397,13.072916439601354,NULL,1,63),(49,'thread',15,'','',13.6084142394822,17.397043294614573,'[\"48\"]',2,63),(50,'threadtype',17,'','',11.601941747572814,32.28440732865298,'[\"49\"]',2,63),(51,'vote_count',NULL,'','',23.252427184466022,22.465681098204858,'[\"49\"]',5,63),(52,'votessource',18,'','',25.19417475728155,35.66525871172123,'[\"51\"]',2,63),(53,'count',NULL,'count','',21.893203883495147,49.70960929250264,'[\"52\"]',3,63),(54,'votedsource',18,'','',35.614886731391586,26.26715945089757,'[\"55\",\"56\"]',2,63),(55,'voted_count',NULL,'','',22.475728155339805,10.3220696937698,'[\"49\"]',5,63),(56,'global.user_id',NULL,'','',29.53074433656958,7.259767687434001,NULL,1,63),(57,'count',NULL,'count','',44.22330097087379,44.74656810982049,'[\"54\"]',3,63),(58,'users',19,'','',1.3754045307443366,38.93875395987328,'[\"49\"]',2,63),(59,'id',NULL,'','',10.307443365695793,15.390707497360085,NULL,1,69),(60,'users',19,'','',25,25,'[\"59\"]',2,69),(61,'usersource',19,'','',45.06472491909385,12.539598732840549,'[\"33\"]',2,57),(62,'votesource',18,'','',34.06148867313916,25.844772967265044,'[\"23\"]',2,53),(63,'id',NULL,'','connect_id',13.673139158576053,19.192185850052798,NULL,1,71),(65,'appssource',21,'','',24.014454664914588,27.95983086680761,'[\"66\"]',2,91),(66,'global.user_id',NULL,'','',7.4572930354796325,15.909090909090908,NULL,1,91),(67,'appssource',21,'','',25.065703022339026,25,NULL,2,96),(68,'categoriessource',25,'','',25,25,NULL,2,107),(69,'categoriessource',25,'','',24.217731421121254,24.441964285714285,NULL,2,111),(70,'itemssource',24,'','',22.653194263363755,15.513392857142858,NULL,2,112),(71,'categories',25,'','',18.415906127770533,31.58482142857143,'[\"70\"]',2,112),(72,'postssource',24,'','',21.80573663624511,18.303571428571427,'[\"74\"]',2,114),(73,'catsource',25,'','',21.870925684485005,36.160714285714285,'[\"72\"]',2,114),(74,'id',NULL,'','id',10.528031290743154,17.857142857142858,NULL,1,114),(75,'id',NULL,'','',15.417209908735332,14.174107142857142,NULL,1,116),(76,'postssource',24,'','',25.25966997407717,25.111607142857146,'[\"75\"]',2,116);
+/*!40000 ALTER TABLE `data_elements` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `element_types`
+--
+
+DROP TABLE IF EXISTS `element_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `element_types` (
+  `form_element` int(10) unsigned DEFAULT NULL,
+  `content_element` int(10) unsigned DEFAULT NULL,
+  `name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `icon` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `element_types`
+--
+
+LOCK TABLES `element_types` WRITE;
+/*!40000 ALTER TABLE `element_types` DISABLE KEYS */;
+INSERT INTO `element_types` VALUES (0,1,'form','form',1,'icofont-file-text'),(0,1,'menu','menu',2,'icofont-listine-dots'),(0,1,'tree','tree',4,'icofont-tree-alt'),(0,1,'table','table',5,'icofont-table'),(0,1,'frame','frame',6,'icofont-surface-tablet'),(0,1,'list','list',7,'icofont-list'),(0,0,'pagedata','pagedata',8,'icofont-page'),(0,0,'dataelement','dataelement',9,'icofont-database'),(1,1,'select','select',10,'icofont-console'),(1,1,'text','text',11,'icofont-console'),(1,1,'textarea','textarea',12,'icofont-console'),(0,1,'filebrowser','filebrowser',13,'icofont-files-stack'),(0,0,'pagereference','pagereference',14,'icofont-page'),(1,1,'typeahead','typeahead',16,'icofont-text-width'),(0,1,'wrap','wrap',17,'icofont-box'),(0,1,'content','content',18,'icofont-box'),(0,1,'information','information',19,'icofont-info-circle'),(0,1,'title','title',20,'icofont-info-circle'),(0,1,'comments','comments',21,'icofont-comment'),(0,1,'componentcontainer','componentcontainer',22,'icofont-box'),(0,2,'vote','vote',23,'icofont-arrow-up'),(0,0,'pagedataquery','pagedataquery',24,'icofont-page'),(0,1,'user','user',25,'icofont-ui-user'),(1,1,'checkbox','checkbox',26,'icofont-checked');
+/*!40000 ALTER TABLE `element_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `elements`
+--
+
+DROP TABLE IF EXISTS `elements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `elements` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `position_x` double DEFAULT NULL,
+  `position_y` double DEFAULT NULL,
+  `element_type_id` bigint(20) unsigned DEFAULT NULL,
+  `page_id` bigint(20) unsigned DEFAULT NULL,
+  `target_table_id` bigint(20) unsigned DEFAULT NULL,
+  `page_reference_id` bigint(20) unsigned DEFAULT NULL,
+  `parents` text DEFAULT NULL,
+  `definition_addition` text DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elements`
+--
+
+LOCK TABLES `elements` WRITE;
+/*!40000 ALTER TABLE `elements` DISABLE KEYS */;
+INSERT INTO `elements` VALUES (1,'idea',19.260634706279543,19.663573085846867,1,1,1,NULL,NULL,'\"{\\n\\t\\\"save\\\": true,\\n\\t\\\"new\\\": true\\n}\"'),(2,'ideas',27.498311951384203,39.15313225058005,5,1,NULL,NULL,'[\"1\",\"8\"]','\"{\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"idea_name\\\": \\\"Name\\\"\\n\\t}\\t\\t\\n}\"'),(4,'idea_name',10.48278190411884,34.164733178654295,11,1,NULL,NULL,'[\"1\"]','\"\"'),(5,'main',19.395532996519794,22.7942210675294,2,2,NULL,NULL,'[\"7\"]','\"\"'),(6,'ideas_reference',13.926401080351114,53.88631090487239,14,2,NULL,1,'[\"5\"]','\"\"'),(7,'content',31.480981593676148,10.614849187935036,6,2,NULL,NULL,'[]','\"\"'),(8,'ideastable',42.218095881161375,26.160092807424597,9,1,NULL,NULL,'[]','\"\"'),(9,'comment',15.47940580688724,51.21809744779582,1,1,4,NULL,'[\"1\"]','\"{\\n\\t\\\"save\\\": true,\\n\\t\\\"new\\\": true\\n}\"'),(10,'comments',26.215395003376095,58.4106728538283,5,1,NULL,NULL,'[\"9\",\"12\"]','\"{\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"comment_value\\\": \\\"comment_value\\\"\\n\\t}\\n}\"'),(11,'comment_value',5.823767724510466,60.84686774941995,11,1,NULL,NULL,'[\"9\"]','\"\"'),(12,'comments_data',41.34031060094531,47.04176334106728,9,1,NULL,NULL,'[]','\"\"'),(14,'todo',22.029034436191765,13.16705336426914,1,3,12,NULL,NULL,'\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(15,'todos2',19.260052822881583,33.232732187227946,5,3,NULL,NULL,'[\"14\",\"20\"]','\"{\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"todos2.todo_value\\\": \\\"todo_value\\\",\\n\\t\\t\\\"todos2.created\\\": \\\"created\\\"\\n\\t},\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true\\n}\"'),(16,'todo_value',38.234301147873055,19.43155452436195,11,3,NULL,NULL,'[\"14\"]','\"\"'),(17,'note',30.13054270103604,34.28074245939675,1,3,13,NULL,'[\"14\"]','\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(18,'note_value',41.94800810263335,41.5893271461717,11,3,NULL,NULL,'[\"17\"]','\"\"'),(19,'notes2',27.878138395590934,51.21687027305208,5,3,NULL,NULL,'[\"17\", \"21\"]','\"{\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"note_value\\\": \\\"note_value\\\",\\n\\t\\t\\\"created\\\": \\\"created\\\"\\n\\t},\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true\\n}\"'),(20,'todos_data',7.710895229697614,22.79479078153874,9,3,NULL,NULL,'[]','\"\"'),(21,'notes2_data',48.570659353509306,28.606127182055175,9,3,NULL,NULL,'[]','\"\"'),(22,'todos',29.186360567184334,38.34106728538283,14,2,NULL,3,'[\"5\"]','\"\"'),(23,'pagedata',49.06613594611145,11.42691415313225,8,3,NULL,NULL,NULL,'\"\"'),(24,'main',23.77022653721683,17.713833157338964,2,4,NULL,NULL,NULL,'\"\"'),(25,'top',32.24919093851133,38.19957761351637,6,4,NULL,NULL,'[\"24\"]','\"\"'),(26,'categories',12.313915857605178,36.721224920802534,14,4,NULL,5,'[\"25\",\"24\"]','\"\"'),(27,'categories',26.941747572815533,18.34741288278775,5,5,NULL,NULL,'[\"28\"]','\"{\\n\\t\\\"show_all_items\\\": true,\\n\\t\\\"no_date_interval\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"name\\\": \\\"name\\\",\\n\\t\\t\\\"countgroup\\\": \\\"Thread count\\\"\\n\\t},\\n\\t\\\"custom_actions\\\": {\\n\\t\\t\\\"goto_sub_forum\\\": {\\n\\t\\t\\t\\\"target_href\\\": \\\"threads\\\",\\n\\t\\t\\t\\\"href_data\\\": {\\n\\t\\t\\t\\t\\\"categories_id\\\": \\\"id\\\"\\n\\t\\t\\t},\\n\\t\\t\\t\\\"value\\\": \\\"Open\\\"\\n\\t\\t}\\n\\t},\\n\\t\\\"column_width\\\": {\\n\\t\\t\\\"countgroup\\\": \\\"150px\\\",\\n\\t\\t\\\"goto_sub_forum\\\": \\\"150px\\\"\\n\\t}\\n}\"'),(28,'categoriesdata',17.491909385113267,31.758183738120383,9,5,NULL,NULL,'[]','\"\"'),(29,'main',25.776699029126217,19.50897571277719,2,6,NULL,NULL,NULL,'\"\"'),(30,'top',29.207119741100325,29.963041182682154,6,6,NULL,NULL,'[\"29\"]','\"\"'),(31,'managecategories',14.12621359223301,33.342133051742344,14,6,NULL,7,'[\"29\",\"30\"]','\"\"'),(32,'category',22.540453074433657,16.34107708553326,1,7,16,NULL,NULL,'\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(33,'name',12.508090614886733,36.40443505807814,11,7,NULL,NULL,'[\"32\"]','\"\"'),(34,'categories',25.581445786559463,38.72756071805703,5,7,NULL,NULL,'[\"32\",\"35\"]','\"{\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"name\\\": \\\"name\\\"\\n\\t},\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true\\n}\"'),(35,'categoriesdata',40.33980582524272,29.435058078141502,9,7,NULL,NULL,NULL,'\"\"'),(36,'pagedata',15.291262135922329,14.545934530095037,8,8,NULL,NULL,NULL,'\"\"'),(37,'title',34.64293445969863,33.658922914466736,20,8,NULL,NULL,'[\"36\",\"65\"]','\"\"'),(38,'pagedata',14.449838187702266,18.136219640971486,8,9,NULL,NULL,NULL,'\"\"'),(39,'threads',37.03883495145631,46.33051742344245,5,9,NULL,NULL,'[\"40\",\"41\"]','\"{\\n\\t\\\"search\\\": true,\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"order_column\\\": \\\"threads.created\\\",\\n\\t\\\"order_column\\\": \\\"DESC\\\",\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"threads.title\\\": \\\"Thread title\\\",\\n\\t\\t\\\"threads.created\\\": \\\"Created\\\",\\n\\t\\t\\\"thread_types.name\\\": \\\"Thread type\\\"\\n\\t},\\n\\t\\\"custom_actions\\\": {\\n\\t\\t\\\"goto_thread\\\": {\\n\\t\\t\\t\\\"target_href\\\": \\\"thread\\\",\\n\\t\\t\\t\\\"href_data\\\": {\\n\\t\\t\\t\\t\\\"id\\\": \\\"id\\\"\\n\\t\\t\\t},\\n\\t\\t\\t\\\"value\\\": \\\"Open\\\"\\n\\t\\t}\\n\\t},\\n\\t\\\"column_width\\\": {\\n\\t\\t\\\"threads.created\\\": \\\"250px\\\",\\n\\t\\t\\\"thread_types.name\\\": \\\"150px\\\",\\n\\t\\t\\\"goto_thread\\\": \\\"150px\\\"\\n\\t}\\n}\"'),(40,'thread',29.401294498381876,11.589229144667371,1,9,15,NULL,NULL,'\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(41,'threadsdata',25.841423948220065,55.72685717025805,9,9,NULL,NULL,'[\"38\"]','\"\"'),(42,'title',42.798274265523865,19.50897571277719,11,9,NULL,NULL,'[\"40\"]','\"\"'),(43,'content',23.898597890119337,20.77437564966671,12,9,NULL,NULL,'[\"40\"]','\"\"'),(46,'thread_types',44.93527508090615,33.02534318901795,10,9,NULL,NULL,'[\"40\",\"47\"]','\"\"'),(47,'threadtypes',58.78640776699029,25.527983104540652,9,9,NULL,NULL,'[]','\"\"'),(48,'threadtype',27.71844660194175,20.142555438225976,1,10,17,NULL,NULL,'\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(49,'threadtypes',29.52966585128439,42.21224920802534,5,10,NULL,NULL,'[\"48\",\"51\"]','\"{\\n\\t\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"thread_types.name\\\": \\\"Thread type name\\\"\\n\\t},\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true\\n}\"'),(50,'name',19.498381877022652,29.963041182682154,11,10,NULL,NULL,'[\"48\"]','\"\"'),(51,'threadtypesdata',41.11650485436893,26.16156282998944,9,10,NULL,NULL,NULL,'\"\"'),(52,'managethreadtypes',19.692556634304207,45.27455121436114,14,6,NULL,10,'[\"29\"]','\"\"'),(53,'threaddata',12.249190938511328,42.63463569165787,9,8,NULL,NULL,'[\"36\"]','\"\"'),(54,'content',21.44012944983819,40.205913410770854,18,8,NULL,NULL,'[\"36\"]','\"\"'),(55,'threadtype',54.12621359223301,31.019007391763466,19,8,NULL,NULL,'[\"36\"]','\"{\\n\\t\\\"caption\\\": \\\"Thread type\\\",\\n\\t\\\"get_load_mask\\\": \\\"thread_types.name\\\"\\n}\"'),(56,'comments',33.2200647249191,52.6663146779303,21,8,14,NULL,'[\"57\"]','\"{\\n\\t\\\"post_data\\\": {\\n\\t\\t\\\"threads_id\\\": \\\"id\\\"\\n\\t}\\n}\"'),(57,'commentsdata',46.94174757281554,42.31784582893348,9,8,NULL,NULL,'[\"36\"]','\"\"'),(58,'votes',23.89967637540453,70.93453009503696,23,8,18,NULL,'[\"56\",\"62\"]','\"\"'),(59,'compcontainer',63.834951456310684,30.38542766631468,22,8,NULL,NULL,'[\"36\",\"65\",\"63\"]','\"\"'),(60,'votesthread',58.46170468623584,50.02639915522703,23,8,18,NULL,'[\"59\"]','\"\"'),(62,'votesdata',35.55016181229774,65.02111932418163,9,8,NULL,NULL,NULL,'\"\"'),(63,'pagequery',3.8349514563106797,36.721224920802534,24,8,NULL,NULL,'[\"36\"]','\"\"'),(65,'mainwrap',35.35598705501618,8.210137275607181,17,8,NULL,NULL,NULL,'\"\"'),(66,'supportreference',20.210355987055017,44.85216473072862,14,4,NULL,11,'[\"24\"]','\"\"'),(67,'user_container',24.741100323624597,35.45406546990496,25,8,NULL,NULL,'[\"36\"]','\"{\\n\\t\\\"caption\\\": \\\"Posted by\\\",\\n\\t\\\"get_load_mask\\\": \\\"users.email\\\",\\n\\t\\\"click\\\": true\\n}\"'),(68,'pagedata',20.533980582524272,11.272439281942978,8,12,NULL,NULL,NULL,'\"\"'),(69,'userdata',16.3915857605178,24.89440337909187,9,12,NULL,NULL,'[\"68\"]','\"\"'),(70,'email',25.06472491909385,25,20,12,NULL,NULL,'[\"68\"]','\"\"'),(72,'description',6.435963777490297,13.474204171240395,18,5,NULL,NULL,NULL,'\"{\\n\\t\\\"content\\\": \\\"Here you can post feature requests, bug reports or general discussion about Noob applications\\\"\\n}\"'),(73,'app',19.612352168199738,16.86046511627907,1,16,21,NULL,NULL,'\"{\\n\\t\\\"title\\\": \\\"App Order\\\",\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(74,'main',22.568988173455978,13.476039894539507,6,14,NULL,NULL,'[]','\\\"\\\"'),(75,'top',29.66491458607096,28.699788583509513,2,14,NULL,NULL,'[\"74\"]','\\\"\\\"'),(76,'apppage',14.027595269382392,30.28541226215645,14,14,NULL,16,'[\"74\",\"75\"]','\\\"\\\"'),(77,'appname',9.954007884362682,29.228329809725157,11,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Application Name\\\"\\n}\"'),(78,'description',19.48094612352168,33.879492600422836,12,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Application Description\\\"\\n}\"'),(79,'companyname',30.51905387647832,29.862579281183933,11,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Company Name\\\"\\n}\"'),(80,'dotnetmacos',7.193386163097487,42.758985200845665,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET macOS application\\\"\\n}\"'),(81,'dotnetwindowsdesktop',6.9973718791064385,54.70401691331924,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET Windows Desktop Application\\\"\\n}\"'),(82,'dotnetwindowsmobile',16.32720105124836,46.45877378435518,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET Windows mobile application\\\"\\n}\"'),(83,'dotnetandroid',22.568988173455978,57.76955602536999,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET Android mobile application\\\"\\n}\"'),(84,'dotnetwebviewmacos',27.562417871222078,42.758985200845665,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET WebView Application (macOS)\\\"\\n}\"'),(85,'dotnetwebviewstreamlinemacos',34.39553219448095,53.22410147991543,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET WebView Streamline macOS application\\\"\\n}\"'),(86,'webapplication',43.856767411300915,38.42494714587738,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\"PHP & JavaScript Web Application\\\"\\n}\"'),(87,'webapplicationstreamline',46.0238723654628,51.74418604651163,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\"Streamline Web Application\\\"\\n}\"'),(88,'webappstreamlineplasticity',55.88042049934296,41.27906976744186,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\"Streamline Diagrams Web Application\\\"\\n}\"'),(90,'apps',41.22864651773981,17.91754756871036,5,16,NULL,NULL,'[\"73\",\"91\"]','\"{\\n\\t\\\"search\\\": true,\\n\\t\\\"pagination_item_count\\\": 10,\\n\\t\\\"pagination\\\": true,\\n\\t\\\"resize\\\": true,\\n\\t\\\"order_column\\\": \\\"created\\\",\\n\\t\\\"order_column\\\": \\\"DESC\\\",\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true,\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"apps.appname\\\": \\\"App name\\\",\\n\\t\\t\\\"created\\\": \\\"Created\\\",\\n\\t\\t\\\"description\\\": \\\"Description\\\"\\t\\t\\n\\t},\\n\\t\\\"column_width\\\": {\\n\\t\\t\\\"created\\\": \\\"250px\\\",\\n\\t\\t\\\"edit_button\\\": \\\"150px\\\",\\n\\t\\t\\\"delete_button\\\": \\\"150px\\\"\\n\\t}\\n}\"'),(91,'appsdata',47.667542706964525,8.826638477801268,9,16,NULL,NULL,NULL,'\"\"'),(92,'dotnetios',17.64126149802891,64.64059196617336,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET iOS\\\"\\n}\"'),(93,'dotnetwebviewdiagrams',27.69382391590013,65.80338266384777,26,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"caption\\\": \\\".NET WebView Streamline Diagrams (macOS)\\\"\\n}\"'),(94,'email',18.101182654402102,78.06553911205074,11,16,NULL,NULL,'[\"73\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Contact email\\\"\\n}\"'),(95,'apporders',19.678055190538764,18.657505285412263,7,15,NULL,NULL,'[\"96\"]','\"{\\n\\t\\\"target\\\": \\\"main\\\",\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"apps.appname\\\": \\\"App name\\\",\\n\\t\\t\\\"created\\\": \\\"Created\\\",\\n\\t\\t\\\"description\\\": \\\"Description\\\",\\n\\t\\t\\\"email\\\": \\\"email\\\",\\n\\t\\t\\\"dotnetmacos\\\": \\\"dotnetmacos\\\",\\n\\t\\t\\\"dotnetwindowsdesktop\\\": \\\"dotnetwindowsdesktop\\\",\\t\\t\\n\\t\\t\\\"dotnetios\\\": \\\"dotnetios\\\",\\n\\t\\t\\\"dotnetwindowsmobile\\\": \\\"dotnetwindowsmobile\\\",\\n\\t\\t\\\"dotnetandroid\\\": \\\"dotnetandroid\\\",\\n\\t\\t\\\"dotnetwebviewmacos\\\": \\\"dotnetwebviewmacos\\\",\\n\\t\\t\\\"dotnetwebviewstreamlinemacos\\\": \\\"dotnetwebviewstreamlinemacos\\\",\\n\\t\\t\\\"dotnetwebviewdiagrams\\\": \\\"dotnetwebviewdiagrams\\\",\\n\\t\\t\\\"webapplication\\\": \\\"webapplication\\\",\\n\\t\\t\\\"webapplicationstreamline\\\": \\\"webapplicationstreamline\\\",\\n\\t\\t\\\"webappstreamlineplasticity\\\": \\\"webappstreamlineplasticity\\\"\\n\\t}\\n}\"'),(96,'appssource',27.23390275952694,10.200845665961946,9,15,NULL,NULL,NULL,'\"\"'),(97,'top',29.367666232073013,29.797247477940154,6,17,NULL,NULL,'[\"98\"]','\"\"'),(98,'main',20.371577574967407,14.285714285714285,2,17,NULL,NULL,NULL,'\"\"'),(99,'feed',11.897001303780964,37.94642857142857,14,17,NULL,18,'[\"98\",\"97\"]','\"\"'),(100,'items',17.959582790091265,29.799107142857146,7,18,NULL,NULL,'[\"112\"]','\"{\\n\\t\\\"target\\\" : \\\"top\\\",\\t\\n\\t\\\"search\\\": \\\"filter\\\",\\n\\t\\\"click\\\": \\\"posts\\\",\\n\\t\\\"animation\\\": \\\"slide\\\",\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"title\\\": \\\"Title\\\",\\n\\t\\t\\\"description\\\": \\\"Description\\\",\\n\\t\\t\\\"link\\\": \\\"Link\\\"\\t\\n\\t}\\n}\"'),(101,'newitemref',17.177314211212515,44.08482142857143,14,17,NULL,19,'[\"98\"]','\"\"'),(102,'post',24.80443285528031,17.745535714285715,1,19,24,NULL,NULL,'\"{\\n\\t\\\"title\\\": \\\"New Post\\\",\\n\\t\\\"new_on_save\\\": true,\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(103,'title',20.110821382007824,29.129464285714285,11,19,NULL,NULL,'[\"102\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Post title\\\"\\n}\"'),(104,'description',23.4354628422425,34.375,12,19,NULL,NULL,'[\"102\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Description\\\"\\n}\"'),(105,'link',30.019556714471967,36.830357142857146,11,19,NULL,NULL,'[\"102\"]','\"{\\n\\t\\\"placeholder\\\": \\\"Link\\\"\\n}\"'),(106,'categories',35.234680573663624,41.74107142857143,10,19,NULL,NULL,'[\"102\",\"107\"]','\"\"'),(107,'categoriesdata',40.44980443285528,23.995535714285715,9,19,NULL,NULL,NULL,'\"\"'),(108,'category',23.95697522816167,11.495535714285714,1,20,25,NULL,NULL,'\"{\\n\\t\\\"new\\\": true,\\n\\t\\\"save\\\": true\\n}\"'),(109,'name',19.06779661016949,25.44642857142857,11,20,NULL,NULL,'[\"108\"]','\"\"'),(110,'categories',24.739243807040417,35.044642857142854,5,20,NULL,NULL,'[\"108\",\"111\"]','\"{\\n\\t\\\"columns\\\": {\\n\\t\\t\\\"name\\\": \\\"name\\\"\\n\\t},\\n\\t\\\"edit\\\": true,\\n\\t\\\"delete\\\": true\\n}\"'),(111,'categoriesdata',33.670143415906125,23.660714285714285,9,20,NULL,NULL,NULL,'\"\"'),(112,'feeddata',24.543676662320728,18.526785714285715,9,18,NULL,NULL,NULL,'\"\"'),(113,'title',21.414602346805736,22.544642857142858,20,21,NULL,NULL,'[\"115\"]','\"\"'),(115,'pagedata',10.136897001303781,9.821428571428571,8,21,NULL,NULL,NULL,'\"\"'),(116,'data',10.984354628422425,27.67671176365444,24,21,NULL,NULL,'[\"115\"]','\"\"');
+/*!40000 ALTER TABLE `elements` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `foreign_table_ids`
+--
+
+DROP TABLE IF EXISTS `foreign_table_ids`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foreign_table_ids` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `table_id` bigint(20) unsigned DEFAULT NULL,
+  `foreign_table_id` bigint(20) unsigned DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `foreign_table_ids`
+--
+
+LOCK TABLES `foreign_table_ids` WRITE;
+/*!40000 ALTER TABLE `foreign_table_ids` DISABLE KEYS */;
+INSERT INTO `foreign_table_ids` VALUES (1,4,1),(2,4,2),(3,10,8),(4,10,9),(9,18,15),(10,18,14),(11,29,24),(12,29,28);
+/*!40000 ALTER TABLE `foreign_table_ids` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item_order`
+--
+
+DROP TABLE IF EXISTS `item_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `item_order` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `connect_id` text DEFAULT NULL,
+  `connect_value` text DEFAULT NULL,
+  `order_value` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2752 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item_order`
+--
+
+LOCK TABLES `item_order` WRITE;
+/*!40000 ALTER TABLE `item_order` DISABLE KEYS */;
+INSERT INTO `item_order` VALUES (22,'8','elements',0),(89,'12','elements',0),(102,'13','elements',0),(145,'1','elements',0),(146,'9','elements',1),(147,'11','elements',2),(148,'10','elements',3),(149,'2','elements',4),(150,'4','elements',5),(189,'20','elements',0),(214,'21','elements',0),(243,'7','elements',0),(244,'5','elements',1),(245,'22','elements',2),(246,'6','elements',3),(307,'23','elements',0),(447,'28','elements',0),(462,'35','elements',0),(511,'32','elements',0),(512,'34','elements',1),(513,'33','elements',2),(522,'36','elements',0),(526,'38','elements',0),(530,'41','elements',0),(569,'44','elements',0),(617,'14','elements',0),(618,'17','elements',1),(619,'19','elements',2),(620,'18','elements',3),(621,'16','elements',4),(622,'15','elements',5),(627,'45','elements',0),(645,'47','elements',0),(670,'51','elements',0),(689,'31','elements',0),(690,'52','elements',1),(691,'30','elements',2),(692,'29','elements',3),(699,'50','elements',0),(700,'48','elements',1),(701,'49','elements',2),(704,'53','elements',0),(799,'57','elements',0),(850,'58','elements',0),(860,'60','elements',0),(896,'61','elements',0),(932,'62','elements',0),(1170,'64','elements',2),(1276,'66','elements',0),(1277,'26','elements',1),(1278,'25','elements',2),(1279,'24','elements',3),(1344,'68','elements',0),(1345,'69','elements',0),(1347,'70','elements',0),(1441,'71','elements',0),(1524,'72','elements',0),(1525,'27','elements',1),(1530,'76','elements',0),(1531,'75','elements',1),(1532,'74','elements',2),(1627,'89','elements',0),(1681,'91','elements',0),(2298,'46','elements',0),(2299,'42','elements',1),(2300,'43','elements',2),(2301,'40','elements',3),(2302,'39','elements',4),(2557,'96','elements',0),(2560,'94','elements',0),(2561,'77','elements',1),(2562,'78','elements',2),(2563,'79','elements',3),(2564,'80','elements',4),(2565,'92','elements',5),(2566,'81','elements',6),(2567,'82','elements',7),(2568,'83','elements',8),(2569,'84','elements',9),(2570,'85','elements',10),(2571,'93','elements',11),(2572,'86','elements',12),(2573,'87','elements',13),(2574,'88','elements',14),(2575,'73','elements',15),(2576,'90','elements',16),(2593,'95','elements',0),(2634,'107','elements',0),(2654,'111','elements',0),(2692,'97','elements',0),(2693,'98','elements',1),(2694,'101','elements',2),(2695,'99','elements',3),(2699,'108','elements',0),(2700,'109','elements',1),(2701,'110','elements',2),(2702,'112','elements',0),(2725,'106','elements',0),(2726,'103','elements',1),(2727,'105','elements',2),(2728,'104','elements',3),(2729,'102','elements',4),(2730,'100','elements',0),(2731,'114','elements',0),(2734,'115','elements',0),(2742,'116','elements',0),(2743,'113','elements',1),(2744,'59','elements',0),(2745,'63','elements',1),(2746,'37','elements',2),(2747,'55','elements',3),(2748,'67','elements',4),(2749,'54','elements',5),(2750,'65','elements',6),(2751,'56','elements',7);
+/*!40000 ALTER TABLE `item_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `node_properties`
+--
+
+DROP TABLE IF EXISTS `node_properties`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `node_properties` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `node_properties`
+--
+
+LOCK TABLES `node_properties` WRITE;
+/*!40000 ALTER TABLE `node_properties` DISABLE KEYS */;
+/*!40000 ALTER TABLE `node_properties` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nodes`
+--
+
+DROP TABLE IF EXISTS `nodes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nodes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `position_x` double DEFAULT NULL,
+  `position_y` double DEFAULT NULL,
+  `node_type` varchar(64) DEFAULT NULL,
+  `user_access_id` bigint(20) unsigned DEFAULT NULL,
+  `application_id` bigint(20) unsigned DEFAULT NULL,
+  `parents` text DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT 0,
+  `node_locked` tinyint(1) DEFAULT 0,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nodes`
+--
+
+LOCK TABLES `nodes` WRITE;
+/*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
+INSERT INTO `nodes` VALUES (4,'ideas',21.151249155975695,10.84493473345055,'additive',1,1,NULL,0,1),(5,'todos',35.330857528696825,24.76798143851508,'additive',1,1,'[\"4\"]',0,1),(6,'comments',6.363943281566509,38.80510440835267,'subtractive',1,1,'[\"4\",\"5\"]',0,1),(7,'notes',38.031735313977045,44.025522041763345,'additive',1,1,'[\"5\"]',0,1),(8,'todos2',54.10195813639432,17.807424593967518,'additive',1,1,NULL,0,1),(9,'notes2',59.77380148548278,39.849187935034806,'additive',1,1,'[\"8\"]',0,1),(10,'data_types',16.733006736068585,17.91835968672918,'additive',2,2,NULL,0,0),(11,'data_entries',28.1843233312921,32.54401616004063,'additive',2,2,'[\"10\"]',0,0),(12,'notes',15.385793018983465,42.41052805789321,'additive',2,2,NULL,0,0),(13,'category',14.692101740294511,14.862724392819429,'additive',4,4,NULL,0,0),(14,'comments',41.11650485436893,63.753959873284046,'additive',5,5,'[\"14\",\"15\"]',0,0),(15,'threads',23.89967637540453,51.610348468849,'additive',5,5,'[\"16\",\"17\"]',0,0),(16,'categories',10.825242718446603,26.79514255543823,'additive',5,5,NULL,0,0),(17,'thread_types',28.236245954692556,20.459345300950368,'additive',5,5,NULL,0,0),(18,'votes',17.168284789644012,74.63041182682154,'subtractive',5,5,'[\"15\",\"14\"]',0,0),(19,'categories',18.72574385510996,16.32821075740944,'additive',8,6,NULL,0,0),(20,'applicationgroups',29.333764553686937,24.012074643249175,'additive',8,6,'[\"19\"]',0,0),(21,'applicationversions',42.529107373868044,42.014270032930845,'additive',8,6,'[\"20\"]',0,0),(22,'comments',17.755498059508408,55.95316546677758,'additive',8,6,'[\"22\",\"23\"]',0,0),(23,'commentslinks',25.775118848793255,46.29527991218441,'subtractive',8,6,'[\"20\",\"21\"]',0,0),(24,'tags',36.57826649417852,10.62019758507135,'additive',8,6,NULL,0,0),(25,'tagslinks',49.450194049159116,31.256860592755213,'additive',8,6,'[\"24\",\"20\"]',0,0),(26,'votes',38.130659767141005,66.6008054228698,'subtractive',8,6,'[\"20\",\"22\"]',0,0),(27,'categories',19.566623544631305,11.2788144895719,'additive',11,7,NULL,0,0),(28,'applications',10.769728331177232,23.353457738748627,'additive',11,7,'[\"30\"]',0,0),(29,'addons',26.03492884864166,29.720087815587267,'additive',11,7,'[\"27\",\"28\"]',0,0),(30,'appcategories',6.824062095730918,11.827661909989024,'additive',11,7,NULL,0,0),(31,'comments',9.540750323415265,58.369923161361136,'additive',11,7,'[\"31\",\"32\"]',0,0),(32,'commentslink',11.67529107373868,43.880351262349066,'subtractive',11,7,'[\"28\",\"29\"]',0,0),(33,'votes',29.139715394566622,49.259055982436884,'subtractive',11,7,'[\"29\",\"28\"]',0,0),(34,'versions',39.29495472186287,40.80680570801317,'additive',11,7,'[\"29\"]',0,0),(36,'apps',24.80289093298292,27.11416490486258,'additive',13,8,NULL,0,0),(38,'profiles',9.028683181225555,19.196428571428573,'additive',14,9,NULL,0,1),(39,'posts',27.216427640156454,37.276785714285715,'additive',14,9,'[\"40\"]',0,1),(40,'categories',19.198174706649283,13.058035714285715,'additive',14,9,NULL,0,1),(41,'tags',34.58279009126467,12.611607142857142,'additive',14,9,NULL,0,1),(42,'poststags',42.14471968709257,27.120535714285715,'additive',14,9,'[\"41\",\"39\"]',0,1),(43,'comments',18.15514993481095,57.92410714285714,'additive',14,9,'[\"39\",\"43\"]',0,1),(44,'votes',36.21251629726206,73.4375,'subtractive',14,9,'[\"39\",\"43\"]',0,1),(45,'untitled node',9.68057366362451,21.09375,NULL,NULL,10,NULL,0,0),(46,'publishers',15.956651718983558,15.787145776919886,'additive',16,11,NULL,0,1),(47,'books',35.76108650241732,45.9198593628025,'additive',16,11,'[\"48\"]',0,1),(48,'series',25.523168908819134,30.619308150065866,'additive',16,11,'[\"46\"]',0,1),(49,'employees',46.52466367713004,21.876138751158763,'additive',16,11,NULL,0,1),(50,'images',44.506726457399104,60.75202173594848,'additive',16,11,'[\"47\"]',0,1);
+/*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `p_schemas`
+--
+
+DROP TABLE IF EXISTS `p_schemas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `p_schemas` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `application_id` bigint(20) unsigned DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `p_schemas`
+--
+
+LOCK TABLES `p_schemas` WRITE;
+/*!40000 ALTER TABLE `p_schemas` DISABLE KEYS */;
+INSERT INTO `p_schemas` VALUES (1,'main',1,1),(2,'main',1,5),(3,'main',1,8),(4,'main',1,9),(5,'main',1,11);
+/*!40000 ALTER TABLE `p_schemas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `p_values`
+--
+
+DROP TABLE IF EXISTS `p_values`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `p_values` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `deleted` tinyint(1) DEFAULT 0,
+  `row_id` bigint(20) unsigned DEFAULT NULL,
+  `column_id` bigint(20) unsigned DEFAULT NULL,
+  `value` text DEFAULT NULL,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `connect_foreign_table_id` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=520 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `p_values`
+--
+
+LOCK TABLES `p_values` WRITE;
+/*!40000 ALTER TABLE `p_values` DISABLE KEYS */;
+INSERT INTO `p_values` VALUES (153,0,1,18,'Other Noob Applications',1,'2022-06-24 12:26:19','2022-06-24 12:26:19',NULL),(154,0,2,18,'Silver & XUL extensions',1,'2022-06-24 12:26:49','2022-06-24 12:26:23',NULL),(155,0,3,18,'Noob Entertainment (TV, Cinema, Player & Music)',1,'2022-06-24 12:26:40','2022-06-24 12:26:40',NULL),(156,0,4,18,'General Discussion',1,'2022-06-24 12:43:11','2022-06-24 12:43:11',NULL),(157,0,1,22,'Bug report',1,'2022-06-24 12:56:57','2022-06-24 12:56:57',NULL),(158,0,2,22,'Feature request',1,'2022-06-24 12:57:03','2022-06-24 12:57:03',NULL),(159,0,3,22,'Discussion',1,'2022-06-24 12:57:07','2022-06-24 12:57:07',NULL),(376,0,5,18,'Noob Streamline',1,'2022-06-25 16:38:35','2022-06-25 16:38:35',NULL),(408,0,1,21,'2',14,'2022-06-26 12:53:05','2022-06-26 12:53:05',NULL),(409,0,1,19,'Mac OSX 10.11.6',14,'2022-06-26 12:53:05','2022-06-26 12:53:05',NULL),(410,0,1,20,'Can you provide a version of this that is compatible with OSX 10.11.6 or the original source code for the same. All of my media computers are running the older OS.',14,'2022-06-26 12:53:05','2022-06-26 12:53:05',NULL),(411,0,1,17,'3',14,'2022-06-26 12:53:05','2022-06-26 12:53:05',NULL),(412,0,1,16,'1',1,'2022-06-26 17:18:36','2022-06-26 17:18:36',NULL),(413,0,2,23,'Mojave is as low as i can go with Noob TV, Cinema and Player. Noob Music should work for 10.6 and above.',1,'2022-06-26 17:19:06','2022-06-26 17:19:06',NULL),(414,0,2,16,'1',1,'2022-06-26 17:19:06','2022-06-26 17:19:06',NULL),(483,0,1,46,'sigginoob@icloud.com',1,'2022-06-29 13:44:48','2022-06-29 13:44:36',NULL),(484,0,1,32,'Prufa ',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(485,0,1,33,'önnur prufa',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(486,0,1,34,'Noob Software',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(487,0,1,35,'1',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(488,0,1,44,'1',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(489,0,1,36,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(490,0,1,37,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(491,0,1,38,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(492,0,1,39,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(493,0,1,40,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(494,0,1,45,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(495,0,1,41,'1',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(496,0,1,42,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(497,0,1,43,'0',1,'2022-06-29 13:44:49','2022-06-29 13:44:36',NULL),(498,0,1,53,'Hardware',1,'2022-07-02 11:13:17','2022-07-02 11:11:53',NULL),(499,0,2,53,'Entertainment',1,'2022-07-02 11:12:42','2022-07-02 11:12:42',NULL),(500,0,3,53,'Software',1,'2022-07-02 11:13:23','2022-07-02 11:13:23',NULL),(501,0,4,53,'Web',1,'2022-07-02 11:13:26','2022-07-02 11:13:26',NULL),(502,0,5,53,'Other cool stuff',1,'2022-07-02 11:13:55','2022-07-02 11:13:55',NULL),(511,0,1,47,'5',1,'2022-07-02 11:30:33','2022-07-02 11:30:33',NULL),(512,0,1,54,'Noob Software',1,'2022-07-02 11:30:33','2022-07-02 11:30:33',NULL),(513,0,1,56,'https://noob.software/',1,'2022-07-02 11:30:33','2022-07-02 11:30:33',NULL),(514,0,1,55,'noob software',1,'2022-07-02 11:30:33','2022-07-02 11:30:33',NULL),(515,0,3,23,NULL,17,'2022-08-25 07:54:37','2022-08-25 07:54:37',NULL),(516,0,3,16,'1',17,'2022-08-25 07:54:37','2022-08-25 07:54:37',NULL),(517,0,4,23,'https://noob.software/#noobtv',17,'2022-08-25 07:54:54','2022-08-25 07:54:54',NULL),(518,0,4,16,'1',17,'2022-08-25 07:54:54','2022-08-25 07:54:54',NULL),(519,0,4,15,'1',17,'2022-08-25 07:54:54','2022-08-25 07:54:54',NULL);
+/*!40000 ALTER TABLE `p_values` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pages`
+--
+
+DROP TABLE IF EXISTS `pages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pages` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `title` text DEFAULT NULL,
+  `icon` text DEFAULT NULL,
+  `user_access_id` bigint(20) unsigned DEFAULT NULL,
+  `application_id` bigint(20) unsigned DEFAULT NULL,
+  `definition_addition` text DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pages`
+--
+
+LOCK TABLES `pages` WRITE;
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` VALUES (1,'ideas','ideas','icofont-brainstorming',1,1,'\"{\\n\\t\\\"no_get_data\\\": true\\n}\"'),(2,'index','index','icofont-unique-idea',1,1,'\"{\\n\\t\\\"display_title\\\": true,\\n\\t\\\"content\\\": []\\n}\"'),(3,'todos','Todos','icofont-listine-dots',1,1,'\"{\\n\\t\\\"no_get_data\\\": true\\n}\"'),(4,'index','Noob Forum','icofont-comment',5,5,'\"{\\n\\t\\\"no_get_data\\\": true,\\n\\t\\\"display_title\\\": true\\n}\"'),(5,'categories','Forum','icofont-listing-box',5,5,'\"\"'),(6,'admin','Admin','',6,5,'\"{\\n\\t\\\"display_title\\\": true\\n}\"'),(7,'managecategories','Manage Categories',NULL,6,5,'\"\"'),(8,'thread','Thread','icofont-connection',5,5,'\"{\\n\\t\\\"class\\\": \\\"article\\\"\\n}\"'),(9,'threads','Threads','',5,5,'\"{\\n\\t\\\"no_get_data\\\": true,\\n\\t\\\"click\\\": \\\"thread\\\",\\n\\t\\\"animation\\\": \\\"slide\\\"\\n}\"'),(10,'threadtypes','Thread types','icofont-sub-listing',6,5,'\"\"'),(11,'support','Support','icofont-support-faq',5,5,'\"{\\n\\t\\\"page_href\\\": \\\"/support/#index/instructions#\\\",\\n\\t\\\"content\\\": [\\n\\t\\t{\\n\\t\\t\\t\\\"type\\\": \\\"content\\\",\\n\\t\\t\\t\\\"id\\\": \\\"instructions\\\",\\n\\t\\t\\t\\\"content\\\": \\\"No settings available at this time.\\\"\\t\\n\\t\\t}\\n\\t]\\t\\n}\"'),(12,'user','User','icofont-ui-user',5,5,'\"\"'),(13,'index','index','icofont-download',8,6,'\"\"'),(14,'index','Order App','icofont-code',13,8,'\"{\\n\\t\\\"display_title\\\": true\\n}\"'),(15,'admin','admin','icofont-ui-user',12,8,'\"\"'),(16,'apporder','Order App','icofont-computer',13,8,'\"\"'),(17,'index','Noob Connect','icofont-connection',14,9,'\"\"'),(18,'feed','Feed','icofont-listing-box',14,9,'\"\"'),(19,'newitem','New Item','icofont-console',14,9,'\"\"'),(20,'managecategories','Manage Categories','',14,9,'\"\"'),(21,'posts','posts','icofont-list',14,9,'\"\"'),(22,'admin','admin',NULL,17,11,'\"{\\n\\t\\\"no_get_data\\\": true\\n}\"'),(23,'managecontactgroups','Manage Contact Groups','',17,11,'\"{\\n\\t\\\"no_get_data\\\": true\\n}\"'),(24,'managecontacts','Manage Contacts',NULL,17,11,'\"\"');
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tables`
+--
+
+DROP TABLE IF EXISTS `tables`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tables` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text DEFAULT NULL,
+  `schema_id` bigint(20) unsigned DEFAULT NULL,
+  `node_id` bigint(20) unsigned DEFAULT NULL,
+  `user_access_id` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tables`
+--
+
+LOCK TABLES `tables` WRITE;
+/*!40000 ALTER TABLE `tables` DISABLE KEYS */;
+INSERT INTO `tables` VALUES (8,'ideas',1,4,1),(9,'todos',1,5,1),(10,'comments',1,6,1),(11,'notes',1,7,1),(12,'todos2',1,8,1),(13,'notes2',1,9,1),(14,'comments',2,14,5),(15,'threads',2,15,5),(16,'categories',2,16,5),(17,'thread_types',2,17,5),(18,'votes',2,18,5),(19,'users',0,NULL,NULL),(20,'apptypes',3,35,13),(21,'apps',3,36,13),(22,'apptypesapps',3,37,13),(23,'profiles',4,38,14),(24,'posts',4,39,14),(25,'categories',4,40,14),(26,'tags',4,41,14),(27,'poststags',4,42,14),(28,'comments',4,43,14),(29,'votes',4,44,14),(30,'publishers',5,46,16),(31,'books',5,47,16),(32,'series',5,48,16),(33,'employees',5,49,16),(34,'images',5,50,16);
+/*!40000 ALTER TABLE `tables` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_group_users`
+--
+
+DROP TABLE IF EXISTS `user_group_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_group_users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `user_group_id` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_group_users`
+--
+
+LOCK TABLES `user_group_users` WRITE;
+/*!40000 ALTER TABLE `user_group_users` DISABLE KEYS */;
+INSERT INTO `user_group_users` VALUES (1,1,6),(2,1,5),(3,2,5),(4,NULL,5),(5,7,5),(6,8,5),(7,9,5),(8,10,5),(9,11,5),(10,12,5),(11,13,5),(12,14,5),(13,1,12),(14,1,13),(15,10,13),(16,15,5),(17,15,13),(18,1,14),(19,1,15),(20,16,5),(21,16,13),(22,17,5),(23,17,13),(24,17,5),(25,17,13),(26,17,5),(27,17,13),(28,18,5),(29,18,13),(30,19,5),(31,19,13),(32,19,5),(33,19,13),(34,20,5),(35,20,13),(36,21,5),(37,21,13),(38,22,5),(39,22,13),(40,23,5),(41,23,13);
+/*!40000 ALTER TABLE `user_group_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_groups`
+--
+
+DROP TABLE IF EXISTS `user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_groups` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_name` text DEFAULT NULL,
+  `parent_group_id` bigint(20) unsigned DEFAULT NULL,
+  `application_id` bigint(20) unsigned DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_groups`
+--
+
+LOCK TABLES `user_groups` WRITE;
+/*!40000 ALTER TABLE `user_groups` DISABLE KEYS */;
+INSERT INTO `user_groups` VALUES (1,'main_group',2,1),(2,'main',2,2),(3,'main',2,3),(4,'main',2,4),(5,'main',2,5),(6,'admin',2,5),(7,'admin',2,6),(8,'main',2,6),(10,'admin',2,7),(11,'main',2,7),(12,'admin',2,8),(13,'main',2,8),(14,'main',2,9),(15,'admin',2,9),(16,'main',2,11),(17,'admin',2,11);
+/*!40000 ALTER TABLE `user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-10-13 10:24:10
