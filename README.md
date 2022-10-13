@@ -32,7 +32,7 @@ What is needed to setup the account app is to get an api key for Captcha from go
   - Documentation needed for StreamlineJS definitions as well as Plasticity application definition.
   - Plasticity should support more elements.
 
-# Plasticty
+# Plasticity
 
 ## Creating a Plasticity App
 
